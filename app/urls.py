@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import index,profile,search_projects
+from .views import index,profile,search_projects,project
 from django.conf import settings
 from django.conf.urls.static import static
 urlpatterns = [
@@ -7,6 +7,7 @@ urlpatterns = [
     path('', index , name ='index'),
     path('profile/', profile, name='profile'),
     path('search/', search_projects, name='search'),
+    path('project/',project, name='project'),
     
 ]
 if settings.DEBUG:

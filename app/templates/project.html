@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<div class="container mt-5 mb-5">
+  <div class="row ">
+    <div class="card col-md-7">
+      <div class="card-body">
+        <h5 class="card-title"><strong>{{project.project_name|title}}</strong></h5>
+        <p class="card-text"><small class="text-muted">{{project.details}}</small></p>
+        <div class="row justify-content-center">
+        </div>
+      </div>
+      <div class="container">
+        <form  action="" method="POST" enctype="multipart/form-data">
+          {%csrf_token%}
+      
+          {% include 'form.html' %}
+          <input type="submit" class="btn btn-sm" value="Post">
+          <button type="button" class="btn btn-sm" style="background-color: black; color: blanchedalmond;" data-dismiss="modal">Close
+          </button>
+        </form>
+      </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+  {% endblock %}
