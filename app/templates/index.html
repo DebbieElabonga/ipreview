@@ -1,4 +1,10 @@
 {% extends 'base.html' %}
 {% block content %}
 <h1>Welcome</h1>
+{% for project in project %}
+  <h3>{{project.project_name}}</h3>
+  <img src="{{project.image.url}}" alt="" style="height: 300px;">
+  <p>Details:{{project.details}}</p>
+  Live link:<a href="{{project.link}}"target = "_blank">{{project.link}}</a>
+  {% endfor %}
 {% endblock %}
