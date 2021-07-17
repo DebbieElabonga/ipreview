@@ -17,3 +17,13 @@ def profile(request):
     }
     return render(request, 'profile.html', context)
 
+def search_projects(request):
+    if 'project' in request.GET and request.GET["project"]:
+        search = request.GET.get("project")
+        projects = Project.search_by_project_name(search)
+        message = f"{search}"
+        context = {"projects":projects, 'search':search}
+        return render(request, 'result.html',context)
+    else:
+        message = "You haven't searched for any term"
+        return render(request, 'result.html',{"message":message})
