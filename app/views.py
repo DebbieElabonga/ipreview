@@ -5,6 +5,7 @@ from django.contrib.auth import login, authenticate
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from .serializer import ProfileSerializer, ProjectSerializer
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 
@@ -20,11 +21,11 @@ class ProfileList(APIView):
         serializers = ProfileSerializer(all_users, many=True)
         return Response(serializers.data)
 
-    
+@login_required(login_url='login')    
 def index(request):
     project = Project.objects.all()
     return render(request, 'index.html', {'project': project})
-
+@login_required(login_url='login')
 def profile(request):
     try:
         profile = request.user.profile
@@ -50,6 +51,7 @@ def profile(request):
     }
     return render(request, 'profile.html', context)
 
+@login_required(login_url='login')
 def search_projects(request):
     if 'project' in request.GET and request.GET["project"]:
         search = request.GET.get("project")
@@ -89,7 +91,7 @@ def signup(request):
         form = UserCreationForm()
     return render(request, 'signup.html', {'form': form})
 
-
+@login_required(login_url='login')
 def oneproject(request,id):
     project = Project.objects.get(id=id)
     
