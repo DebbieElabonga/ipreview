@@ -10,12 +10,21 @@ def index(request):
 
 def profile(request):
     user = request.user
+    if request.method == 'POST':
+        prof_form = UpdateUserProfileForm(request.POST, request.FILES, instance=request.user.profile)
+        if prof_form.is_valid():
+            prof_form.save()
+            return redirect(request.path_info)
+    else:
+        prof_form = UpdateUserProfileForm(instance=request.user.profile)
     profiles = Profile.objects.filter(user=user)
     projects = Project.objects.filter(user = user)
+    
     context = {
 
         'projects': projects,
         'profiles': profiles,
+        'prof_form': prof_form,
         
     }
     return render(request, 'profile.html', context)
