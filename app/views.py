@@ -71,3 +71,11 @@ def signup(request):
     else:
         form = UserCreationForm()
     return render(request, 'signup.html', {'form': form})
+
+
+def oneproject(request,id):
+    project = Project.objects.get(id=id)
+    
+    
+    return render(request, 'oneproject.html',{"project":project})
+

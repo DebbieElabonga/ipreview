@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+<h3 class="text-center m-4">Project</h3>
+<hr>
+
+    <div class = container>
+
+<h4 class="card-title">{{project.project_name}}</h4>
+<img class="card-img-top" width="100%" src="{{ project.image.url }}" alt="-------">
+<p>{{project.details}}</p>
+<a href="{{project.link}}" target="_blank">{{project.link}}</a>
+<p class="card-text"><small class="text-muted">{{project.date|date}}</small></p>
+</div>
+
+</div>
+
+</div>
+
+
+</div>
+{% endblock %}
