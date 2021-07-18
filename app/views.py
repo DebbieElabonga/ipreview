@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from .models import Project, Profile
-from .forms import ProjectForm, UpdateUserProfileForm, UpdateUserForm,UserCreationForm
+from .forms import ProjectForm, UpdateUserProfileForm, UserCreationForm
 from django.contrib.auth import login, authenticate
 from rest_framework.response import Response
 from rest_framework.views import APIView
@@ -12,6 +12,12 @@ class ProjectList(APIView):
     def get(self, request, format=None):
         all_projects = Project.objects.all()
         serializers = ProjectSerializer(all_projects, many=True)
+        return Response(serializers.data)
+
+class ProfileList(APIView):
+    def get(self, request, format=None):
+        all_users = Profile.objects.all()
+        serializers = ProfileSerializer(all_users, many=True)
         return Response(serializers.data)
 
     

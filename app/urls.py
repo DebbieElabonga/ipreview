@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import index,profile,search_projects,project,signup,oneproject,ProjectList
+from .views import index,profile,search_projects,project,signup,oneproject,ProjectList,ProfileList
 from django.conf import settings
 from django.conf.urls.static import static
 urlpatterns = [
@@ -11,7 +11,7 @@ urlpatterns = [
     path('signup/', signup, name='signup'),
     path('project/<int:id>/',oneproject, name='oneproject'),
     path('api/projects/', ProjectList.as_view()),
-    
+    path('api/profiles/', ProfileList.as_view())
 ]
 if settings.DEBUG:
     urlpatterns+= static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
