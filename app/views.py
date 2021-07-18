@@ -9,6 +9,10 @@ def index(request):
     return render(request, 'index.html', {'project': project})
 
 def profile(request):
+    try:
+        profile = request.user.profile
+    except Profile.DoesNotExist:
+        profile = Profile(user=request.user)
     user = request.user
     if request.method == 'POST':
         prof_form = UpdateUserProfileForm(request.POST, request.FILES, instance=request.user.profile)
