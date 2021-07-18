@@ -2,8 +2,19 @@ from django.shortcuts import render, redirect
 from .models import Project, Profile
 from .forms import ProjectForm, UpdateUserProfileForm, UpdateUserForm,UserCreationForm
 from django.contrib.auth import login, authenticate
+from rest_framework.response import Response
+from rest_framework.views import APIView
+from .serializer import ProfileSerializer, ProjectSerializer
 
 # Create your views here.
+
+class ProjectList(APIView):
+    def get(self, request, format=None):
+        all_projects = Project.objects.all()
+        serializers = ProjectSerializer(all_projects, many=True)
+        return Response(serializers.data)
+
+    
 def index(request):
     project = Project.objects.all()
     return render(request, 'index.html', {'project': project})

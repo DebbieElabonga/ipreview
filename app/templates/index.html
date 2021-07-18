@@ -6,7 +6,7 @@
   <img src="{{project.image.url}}" alt="" style="height: 300px;">
   <p>Details:{{project.details}}</p>
   Live link:<a href="{{project.link}}"target = "_blank">{{project.link}}</a>
-  <a href="{% url 'oneproject' project.id %}" class="btn btn-success p-2">View Post</a>
+  <a href="{% url 'oneproject' project.id %}" class="btn btn-success p-2">View Project</a>
   <p class="card-text"><small class="text-muted">{{project.date|date}}</small></p>
   {% endfor %}
 {% endblock %}
