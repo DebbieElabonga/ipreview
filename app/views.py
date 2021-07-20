@@ -6,6 +6,8 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 from .serializer import ProfileSerializer, ProjectSerializer
 from django.contrib.auth.decorators import login_required
+from django.http import HttpResponse, Http404,HttpResponseRedirect
+from django.urls import reverse
 
 # Create your views here.
 
@@ -95,6 +97,6 @@ def signup(request):
 def oneproject(request,id):
     project = Project.objects.get(id=id)
     
-    
-    return render(request, 'oneproject.html',{"project":project})
+    return render(request, 'oneproject.html' , {'project' : project})
+
 

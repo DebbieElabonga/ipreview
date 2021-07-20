@@ -11,7 +11,8 @@ urlpatterns = [
     path('signup/', signup, name='signup'),
     path('project/<int:id>/',oneproject, name='oneproject'),
     path('api/projects/', ProjectList.as_view()),
-    path('api/profiles/', ProfileList.as_view())
+    path('api/profiles/', ProfileList.as_view()),
+    
 ]
 if settings.DEBUG:
     urlpatterns+= static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)

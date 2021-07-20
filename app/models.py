@@ -27,7 +27,7 @@ class Project(models.Model):
      
     class Meta:
         ordering = ["-pk"]
-
+ 
     @classmethod
     def get_projects(cls):
         projects = Project.objects.all()

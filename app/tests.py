@@ -16,3 +16,4 @@ class TestProfile(TestCase):
 
     def test_delete_user(self):
         self.user.delete()
+        
