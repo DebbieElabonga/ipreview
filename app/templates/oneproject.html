@@ -4,21 +4,7 @@
 <h3 class="text-center m-4">Project</h3>
 <hr>
 
-    <div class = container>
-      <div class="row text-center mb-4">
-        <div class="col-md-4">
-            <p><strong>Design</strong></p>
-            <span>{% ratings project icon_height=20 icon_width=20 %}</span>
-        </div>
-        <div class="col-md-4">
-            <p><strong>Usability</strong></p>
-            <span>{% ratings project icon_height=20 icon_width=20 %}</span>
-        </div>
-        <div class="col-md-4">
-            <p><strong>Content</strong></p>
-            <span>{% ratings project icon_height=20 icon_width=20 %}</span>
-        </div>
-    </div>
+    
 <h4 class="card-title">{{project.project_name}}</h4>
 <img class="card-img-top" width="100%" src="{{ project.image.url }}" alt="-------">
 <p>{{project.details}}</p>
@@ -29,7 +15,21 @@
         <div class="row justify-content-center">
           <a href="{{ project.link }}" class="btn btn-sm col-md-4 mr-4" style="background-color: #695c64;">View Project</a>
 </div>
-
+<div class = container>
+    <div class="row text-center mb-4">
+      <div class="col-md-4">
+          <p><strong>Design</strong></p>
+          <span>{% ratings project icon_height=20 icon_width=20 %}</span>
+      </div>
+      <div class="col-md-4">
+          <p><strong>Usability</strong></p>
+          <span>{% ratings project icon_height=20 icon_width=20 %}</span>
+      </div>
+      <div class="col-md-4">
+          <p><strong>Content</strong></p>
+          <span>{% ratings project icon_height=20 icon_width=20 %}</span>
+      </div>
+  </div>
 
 </div>
 {% endblock %}
